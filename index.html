@@ -1,220 +1,218 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truyền Thông CVL</title>
-    <style>
-        /* CSS: Giao diện */
-        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; }
-        
-        /* --- PHẦN HEADER --- */
-        header { background-color: #b71c1c; color: white; padding: 15px 20px 0; }
-        .header-content { 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 15px; 
-            margin-bottom: 15px; /* Thêm khoảng cách với nav */
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truyền Thông CVL</title>
+    <style>
+        /* CSS: Giao diện */
+        body { font-family: sans-serif; margin: 0; padding: 0; background-color: #f0f2f5; }
 
-        header h1 { margin: 0; text-transform: uppercase; font-size: 1.8rem; }
-        
-        .logo-img { 
-            height: 60px; 
-            width: 60px;  
-            object-fit: contain; 
-            background-color: white; 
-            border-radius: 50%; 
-            padding: 2px;
-        }
+        /* --- PHẦN HEADER --- */
+        header { background-color: #b71c1c; color: white; padding: 15px 20px 0; }
+        .header-content { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 15px; 
+            margin-bottom: 15px;
+        }
 
-        /* --- CSS THANH ĐIỀU HƯỚNG MỚI (NAV) --- */
-        nav {
-            background-color: #9c1717; /* Màu đậm hơn cho thanh nav */
-            padding: 10px 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap; /* Cho phép xuống dòng nếu cần trên màn hình nhỏ */
-            justify-content: center;
-        }
-        nav li {
-            margin: 0 15px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s;
-        }
-        nav a:hover {
-            background-color: #d32f2f; /* Màu nền khi di chuột */
-        }
-        /* --------------------------------------------- */
-        
-        /* --- CSS THANH TÌM KIẾM --- */
-        .search-bar { 
-            margin-bottom: 20px; 
-        }
-        #search-input { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            font-size: 1rem; 
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.05); 
-            transition: border-color 0.3s;
-        }
-        #search-input:focus {
-            border-color: #b71c1c;
-            outline: none;
-        }
-        /* -------------------------------- */
+        header h1 { margin: 0; text-transform: uppercase; font-size: 1.8rem; }
 
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
-        
-        /* Phần tin nổi bật (Hero) */
-        .hero { background: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        .hero img { width: 100%; height: 400px; object-fit: cover; border-radius: 5px; }
-        .hero h2 { color: #333; margin-top: 15px; }
-        
-        /* Lưới tin tức nhỏ */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-content { padding: 15px; }
-        .card-title { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; color: #333; text-decoration: none; }
-        
-        /* Footer - Phần chữ ký */
-        footer { 
-            background-color: #333; 
-            color: white; 
-            text-align: center; 
-            padding: 20px; 
-            margin-top: 30px; 
-            font-weight: bold;
-        }
-    </style>
+        .logo-img { 
+            height: 60px; /* Đã sửa: Xóa khoảng trắng thừa */
+            width: 60px; /* Đã sửa: Xóa khoảng trắng thừa */
+            object-fit: contain; 
+            background-color: white; 
+            border-radius: 50%; 
+            padding: 2px;
+        }
+
+        /* --- CSS THANH ĐIỀU HƯỚNG ĐÃ SỬA LỖI (NAV) --- */
+        nav {
+            background-color: #9c1717;
+            padding: 10px 0;
+        }
+        /* Định kiểu cho container chứa liên kết */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Cho phép xuống dòng nếu cần */
+            padding: 0 15px;
+        }
+        /* Định kiểu cho từng liên kết */
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px; /* Tăng padding để dễ bấm hơn */
+            margin: 0 5px; /* Khoảng cách giữa các mục */
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-links a:hover,
+        .nav-links a.active { /* Giả sử .active là mục đang được chọn */
+            background-color: #d32f2f;
+            color: #ffeb3b; /* Màu chữ nổi bật hơn khi hover/active */
+        }
+        /* --------------------------------------------- */
+
+        /* --- CSS THANH TÌM KIẾM --- */
+        .search-bar { 
+            margin-bottom: 20px; 
+        }
+        #search-input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            font-size: 1rem; 
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05); 
+            transition: border-color 0.3s;
+        }
+        #search-input:focus {
+            border-color: #b71c1c;
+            outline: none;
+        }
+        /* -------------------------------- */
+
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 15px; }
+
+        /* Phần tin nổi bật (Hero) */
+        .hero { background: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .hero img { width: 100%; height: 400px; object-fit: cover; border-radius: 5px; }
+        .hero h2 { color: #333; margin-top: 15px; }
+
+        /* Lưới tin tức nhỏ */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 15px; }
+        .card-title { font-weight: bold; font-size: 1.1em; margin-bottom: 10px; display: block; color: #333; text-decoration: none; }
+
+        /* Footer - Phần chữ ký */
+        footer { 
+            background-color: #333; 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            margin-top: 30px; 
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-content">
-            <img src="https://html.nhpoj.net/media/ChaPhu/images.jpg" class="logo-img" alt="Logo Trường">
-            <h1>Truyền Thông CVL</h1>
-        </div>
+    <header>
+        <div class="header-content">
+            <img src="https://html.nhpoj.net/media/ChaPhu/images.jpg" class="logo-img" alt="Logo Trường">
+            <h1>Truyền Thông CVL</h1>
+        </div>
         <nav>
             <div class="nav-links">
                 <a href="https://chauvanliem.edu.vn/" class="active" target="_blank">🏡 Trang chủ</a>
-                <a href="https://chauvanliem.edu.vn/gioi-thieu/gioi-thieu-ve-truong-chau-van-liem-hien-nay/" class="active" target="_blank">📜 Giới thiệu</a>
-                <a href="https://chauvanliem.edu.vn/tin-tuc-su-kien/" class="active" target="_blank">📰 Tin tức</a>
-                <a href="https://chauvanliem.edu.vn/thong-bao/" class="active" target="_blank">🔔 Thông báo</a>
-                <a href="https://chauvanliem.edu.vn/tuyen-sinh-10/" class="active" target="_blank">📚 Tuyển sinh</a>
-                <a href="https://chauvanliem.edu.vn/lien-he/" class="active" target="_blank">📞 Liên hệ</a>
+                <a href="https://chauvanliem.edu.vn/gioi-thieu/gioi-thieu-ve-truong-chau-van-liem-hien-nay/" target="_blank">📜 Giới thiệu</a>
+                <a href="https://chauvanliem.edu.vn/tin-tuc-su-kien/" target="_blank">📰 Tin tức</a>
+                <a href="https://chauvanliem.edu.vn/thong-bao/" target="_blank">🔔 Thông báo</a>
+                <a href="https://chauvanliem.edu.vn/tuyen-sinh-10/" target="_blank">📚 Tuyển sinh</a>
+                <a href="https://chauvanliem.edu.vn/lien-he/" target="_blank">📞 Liên hệ</a>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="hero">
-            <img src="https://html.nhpoj.net/media/ChaPhu/cvl1.jpg" alt="THPT Châu Văn Liêm">
-        </div>
+    <div class="container">
+        <div class="hero">
+            <img src="https://html.nhpoj.net/media/ChaPhu/cvl1.jpg" alt="THPT Châu Văn Liêm">
+        </div>
 
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Tìm kiếm bài viết (theo tiêu đề hoặc nội dung tóm tắt)...">
-        </div>
-        <div class="grid" id="news-list"></div>
-    </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Tìm kiếm bài viết (theo tiêu đề hoặc nội dung tóm tắt)...">
+        </div>
+        <div class="grid" id="news-list"></div>
+    </div>
 
-    <footer>
-        Made by Nhóm 9 12A4 THPT Châu Văn Liêm
-    </footer>
+    <footer>
+        Made by Nhóm 9 12A4 THPT Châu Văn Liêm
+    </footer>
 
-    <script>
-        // --- PHẦN DỮ LIỆU BÀI VIẾT ---
-        const articles = [
-            {
-                title: "Học sinh trường CVL đạt giải cao trong kỳ thi sáng tạo kỹ thuật",
-                desc: "Bài viết giới thiệu về thành tích xuất sắc của các bạn học sinh...",
-                img: "https://html.nhpoj.net/media/ChaPhu/cvl2.png"
-            },
-            {
-                title: "Thông báo lịch thi học kỳ 1",
-                desc: "Học sinh khối 12 chú ý lịch ôn tập và thi cử sắp tới.",
-                img: "https://html.nhpoj.net/media/ChaPhu/1340574185241854547.jpg"
-            },
-            {
-                title: "Giao lưu văn hoá Việt Hàn",
-                desc: "Bức ảnh ghi lại không khí sôi nổi của Lễ hội Giao lưu Văn hoá Việt – Hàn được tổ chức tại trường THPT Châu Văn Liêm. Sân trường được trang trí rực rỡ với cờ, biểu ngữ và các gian trưng bày đặc trưng của hai quốc gia. Các học sinh trong trang phục truyền thống như áo dài Việt Nam và hanbok Hàn Quốc đang cùng tham gia các hoạt động trải nghiệm văn hóa, trình diễn văn nghệ và giao lưu nghệ thuật...",
-                img: "https://html.nhpoj.net/media/ChaPhu/cvl3.jpg"
-            },
-            {
-                title: "Văn nghệ chào mừng năm học 2025-2026 của THPT Châu Văn Liêm",
-                desc: "Bức ảnh ghi lại khoảnh khắc trang trọng và hào hứng trong Lễ Khai giảng chào mừng năm học mới tại trường THPT Châu Văn Liêm. Trên sân trường rộng lớn, quốc kỳ và cờ hoa được trang trí nổi bật tạo nên không khí tươi vui và rực rỡ. Học sinh trong đồng phục ngay ngắn đứng thành hàng ngay ngắn, thể hiện sự nghiêm túc và tinh thần sẵn sàng bước vào một năm học mới đầy thử thách và hy vọng...",
-                img: "https://html.nhpoj.net/media/ChaPhu/1949395589435839343.jpg"
-            },
-            {
-                title: "Thành quả sau 2 tuần vất vả tập luyện cho Hành khúc Châu Văn Liêm của tập thể 12A4 THPT Châu Văn Liêm",
-                desc: "Các lớp thi đua thể hiện sự tự tin, kỷ luật và tinh thần tập thể. Tiếng cổ vũ sôi nổi từ phía khán giả và thầy cô càng làm cho cuộc thi trở nên sôi động hơn. Mỗi đội đều cố gắng trình bày đội hình, đội ngũ và tinh thần lớp mình một cách đẹp nhất...",
-                img: "https://html.nhpoj.net/media/ChaPhu/cvlbai5.jpg"
-            },
-            {
-                title: "Ánh đèn sân khấu, nụ cười của các bạn biểu diễn và sự cổ vũ của khán giả thể hiện tinh thần đoàn kết, năng động và sự tri ân sâu sắc của học sinh dành cho các thầy cô nhân dịp 20/11.",
-                desc: "Bức ảnh ghi lại không khí sôi động và đầy cảm xúc trong chương trình văn nghệ chào mừng Ngày Nhà giáo Việt Nam 20/11 tại trường THPT Châu Văn Liêm. Trên sân khấu được trang trí nổi bật với phông nền rực rỡ và các dải cờ hoa, nhóm học sinh đang biểu diễn tiết mục múa/nhảy trong trang phục đồng đều, sắc màu tươi sáng. Phía dưới sân trường, học sinh và thầy cô chăm chú theo dõi, cổ vũ nhiệt tình, tạo nên một khung cảnh vừa trẻ trung vừa trang trọng...",
-                img: "https://html.nhpoj.net/media/ChaPhu/1419671609121202909.jpg"
-            }
-        ];
+    <script>
+        // --- PHẦN DỮ LIỆU BÀI VIẾT ---
+        const articles = [
+            {
+                title: "Học sinh trường CVL đạt giải cao trong kỳ thi sáng tạo kỹ thuật",
+                desc: "Bài viết giới thiệu về thành tích xuất sắc của các bạn học sinh...",
+                img: "https://html.nhpoj.net/media/ChaPhu/cvl2.png"
+            },
+            {
+                title: "Thông báo lịch thi học kỳ 1",
+                desc: "Học sinh khối 12 chú ý lịch ôn tập và thi cử sắp tới.",
+                img: "https://html.nhpoj.net/media/ChaPhu/1340574185241854547.jpg"
+            },
+            {
+                title: "Giao lưu văn hoá Việt Hàn",
+                desc: "Bức ảnh ghi lại không khí sôi nổi của Lễ hội Giao lưu Văn hoá Việt – Hàn được tổ chức tại trường THPT Châu Văn Liêm. Sân trường được trang trí rực rỡ với cờ, biểu ngữ và các gian trưng bày đặc trưng của hai quốc gia. Các học sinh trong trang phục truyền thống như áo dài Việt Nam và hanbok Hàn Quốc đang cùng tham gia các hoạt động trải nghiệm văn hóa, trình diễn văn nghệ và giao lưu nghệ thuật...",
+                img: "https://html.nhpoj.net/media/ChaPhu/cvl3.jpg"
+            },
+            {
+                title: "Văn nghệ chào mừng năm học 2025-2026 của THPT Châu Văn Liêm",
+                desc: "Bức ảnh ghi lại khoảnh khắc trang trọng và hào hứng trong Lễ Khai giảng chào mừng năm học mới tại trường THPT Châu Văn Liêm. Trên sân trường rộng lớn, quốc kỳ và cờ hoa được trang trí nổi bật tạo nên không khí tươi vui và rực rỡ. Học sinh trong đồng phục ngay ngắn đứng thành hàng ngay ngắn, thể hiện sự nghiêm túc và tinh thần sẵn sàng bước vào một năm học mới đầy thử thách và hy vọng...",
+                img: "https://html.nhpoj.net/media/ChaPhu/1949395589435839343.jpg"
+            },
+            {
+                title: "Thành quả sau 2 tuần vất vả tập luyện cho Hành khúc Châu Văn Liêm của tập thể 12A4 THPT Châu Văn Liêm",
+                desc: "Các lớp thi đua thể hiện sự tự tin, kỷ luật và tinh thần tập thể. Tiếng cổ vũ sôi nổi từ phía khán giả và thầy cô càng làm cho cuộc thi trở nên sôi động hơn. Mỗi đội đều cố gắng trình bày đội hình, đội ngũ và tinh thần lớp mình một cách đẹp nhất...",
+                img: "https://html.nhpoj.net/media/ChaPhu/cvlbai5.jpg"
+            },
+            {
+                title: "Ánh đèn sân khấu, nụ cười của các bạn biểu diễn và sự cổ vũ của khán giả thể hiện tinh thần đoàn kết, năng động và sự tri ân sâu sắc của học sinh dành cho các thầy cô nhân dịp 20/11.",
+                desc: "Bức ảnh ghi lại không khí sôi động và đầy cảm xúc trong chương trình văn nghệ chào mừng Ngày Nhà giáo Việt Nam 20/11 tại trường THPT Châu Văn Liêm. Trên sân khấu được trang trí nổi bật với phông nền rực rỡ và các dải cờ hoa, nhóm học sinh đang biểu diễn tiết mục múa/nhảy trong trang phục đồng đều, sắc màu tươi sáng. Phía dưới sân trường, học sinh và thầy cô chăm chú theo dõi, cổ vũ nhiệt tình, tạo nên một khung cảnh vừa trẻ trung vừa trang trọng...",
+                img: "https://html.nhpoj.net/media/ChaPhu/1419671609121202909.jpg"
+            }
+        ];
 
-        // --- PHẦN JS ĐÃ ĐƯỢC THAY ĐỔI ĐỂ HỖ TRỢ TÌM KIẾM ---
+        // --- PHẦN JS ĐÃ ĐƯỢC THAY ĐỔI ĐỂ HỖ TRỢ TÌM KIẾM ---
 
-        // Hàm chung để render (hiển thị) danh sách bài viết
-        function renderArticles(data) {
-            const newsList = document.getElementById('news-list');
-            newsList.innerHTML = ''; // Xóa nội dung cũ trước khi render mới
+        // Hàm chung để render (hiển thị) danh sách bài viết
+        function renderArticles(data) {
+            const newsList = document.getElementById('news-list');
+            newsList.innerHTML = ''; // Xóa nội dung cũ trước khi render mới
 
-            data.forEach(article => {
-                newsList.innerHTML += `
-                    <div class="card">
-                        <img src="${article.img}" alt="${article.title}">
-                        <div class="card-content">
-                            <a href="#" class="card-title">${article.title}</a>
-                            <p>${article.desc}</p>
-                        </div>
-                    </div>
-                `;
-            });
-        }
+            data.forEach(article => {
+                newsList.innerHTML += `
+                    <div class="card">
+                        <img src="${article.img}" alt="${article.title}">
+                        <div class="card-content">
+                            <a href="#" class="card-title">${article.title}</a>
+                            <p>${article.desc}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
 
-        // Hàm xử lý tìm kiếm
-        function handleSearch() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            
-            // Lọc danh sách bài viết dựa trên từ khóa
-            const filteredArticles = articles.filter(article => {
-                // Kiểm tra xem từ khóa có nằm trong tiêu đề hoặc mô tả không
-                return article.title.toLowerCase().includes(searchTerm) || 
-                       article.desc.toLowerCase().includes(searchTerm);
-            });
+        // Hàm xử lý tìm kiếm
+        function handleSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            
+            // Lọc danh sách bài viết dựa trên từ khóa
+            const filteredArticles = articles.filter(article => {
+                // Kiểm tra xem từ khóa có nằm trong tiêu đề hoặc mô tả không
+                return article.title.toLowerCase().includes(searchTerm) || 
+                       article.desc.toLowerCase().includes(searchTerm);
+            });
 
-            renderArticles(filteredArticles); // Hiển thị kết quả lọc
-        }
+            renderArticles(filteredArticles); // Hiển thị kết quả lọc
+        }
 
-        // 1. Chạy hàm hiển thị toàn bộ bài viết khi trang tải xong
-        document.addEventListener('DOMContentLoaded', () => {
-            renderArticles(articles);
-            
-            // 2. Thêm Event Listener cho thanh tìm kiếm
-            document.getElementById('search-input').addEventListener('keyup', handleSearch);
-        });
+        // 1. Chạy hàm hiển thị toàn bộ bài viết khi trang tải xong
+        document.addEventListener('DOMContentLoaded', () => {
+            renderArticles(articles);
+            
+            // 2. Thêm Event Listener cho thanh tìm kiếm
+            document.getElementById('search-input').addEventListener('keyup', handleSearch);
+        });
 
-    </script>
+    </script>
 </body>
 </html>
