@@ -120,19 +120,19 @@
 
     <header>
         <div class="header-content">
-                        <img src="https://html.nhpoj.net/media/ChaPhu/images.jpg" class="logo-img" alt="Logo Trường">
+            <img src="https://html.nhpoj.net/media/ChaPhu/images.jpg" class="logo-img" alt="Logo Trường">
             <h1>Truyền Thông CVL</h1>
         </div>
     </header>
 
     <nav>
         <div class="nav-links">
-                        <a href="https://chauvanliem.edu.vn/" target="_blank">🏡 Trang chủ</a>
-            <a href="https://chauvanliem.edu.vn/gioi-thieu/gioi-thieu-ve-truong-chau-van-liem-hien-nay/" target="_blank">📜 Giới thiệu</a>
-            <a href="https://chauvanliem.edu.vn/tin-tuc-su-kien/" target="_blank">📰 Tin tức</a>
-            <a href="https://chauvanliem.edu.vn/thong-bao/" target="_blank">🔔 Thông báo</a>
-            <a href="https://chauvanliem.edu.vn/tuyen-sinh-10/" target="_blank">📚 Tuyển sinh</a>
-            <a href="https://chauvanliem.edu.vn/lien-he/" target="_blank">📞 Liên hệ</a>
+            <a href="https://chauvanliem.edu.vn/">🏡 Trang chủ</a>
+            <a href="https://chauvanliem.edu.vn/gioi-thieu/gioi-thieu-ve-truong-chau-van-liem-hien-nay/">📜 Giới thiệu</a>
+            <a href="https://chauvanliem.edu.vn/tin-tuc-su-kien/">📰 Tin tức</a>
+            <a href="https://chauvanliem.edu.vn/thong-bao/">🔔 Thông báo</a>
+            <a href="https://chauvanliem.edu.vn/tuyen-sinh-10/">📚 Tuyển sinh</a>
+            <a href="https://chauvanliem.edu.vn/lien-he/">📞 Liên hệ</a>
         </div>
     </nav>
     <div class="container">
@@ -152,7 +152,7 @@
     </footer>
 
     <script>
-        // --- PHẦN DỮ LIỆU BÀI VIẾT (ĐÃ GIỮ NGUYÊN ĐƯỜNG DẪN TƯƠNG ĐỐI) ---
+        // --- PHẦN DỮ LIỆU BÀI VIẾT (ĐÃ THÊM 'url') ---
         const articles = [
             {
                 title: "Học sinh trường CVL đạt giải cao trong kỳ thi sáng tạo kỹ thuật",
@@ -209,7 +209,7 @@
                     <div class="card">
                         <img src="${article.img}" alt="${article.title}">
                         <div class="card-content">
-                                                        <a href="${article.url}" class="card-title" target="_blank">${article.title}</a>
+                            <a href="${article.url}" class="card-title">${article.title}</a>
                             <p>${article.desc}</p>
                         </div>
                     </div>
@@ -217,17 +217,10 @@
             });
         }
 
-        // Hàm xử lý tìm kiếm (ĐÃ CẢI TIẾN)
+        // Hàm xử lý tìm kiếm
         function handleSearch() {
-            // Sử dụng .trim() để loại bỏ khoảng trắng dư thừa
-            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
             
-            // KIỂM TRA: Nếu thanh tìm kiếm trống, hiển thị lại TẤT CẢ bài viết
-            if (searchTerm === '') {
-                renderArticles(articles);
-                return;
-            }
-
             // Lọc danh sách bài viết dựa trên từ khóa
             const filteredArticles = articles.filter(article => {
                 // Kiểm tra xem từ khóa có nằm trong tiêu đề hoặc mô tả không
